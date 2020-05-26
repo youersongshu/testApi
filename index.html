@@ -1,0 +1,35 @@
+<html lang="zh-CN">
+  
+        <head>
+                  <meta charset="UTF-8">
+                    <title>test page</title>
+        </head>
+
+        <body>
+                  <div>
+                              url:<input type="text" value="http://baby.gn100.com/org.course.delcourse" id="url" />
+                                </div>
+                                  <div>
+                                              id:<input type="text" value="455" id="id" />
+                                                </div>
+                                                  <button id="submit">提交</button>
+        </body>
+        <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+                  let id = $("#id").val();
+  let url = $("#url").val();
+  $('#submit').click(function(event) {
+              $.ajax({
+                            url: url,
+                            type: 'POST',
+                            dataType: 'json',
+                            data: {
+                                            id: id
+                                          },
+                          })
+              .done(function(res) {
+                            console.log("success",res);
+                          });
+            });
+        </script>
+</html>
